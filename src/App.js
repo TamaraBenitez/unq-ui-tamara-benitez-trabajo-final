@@ -1,6 +1,8 @@
-import './App.css';
+
 import { useState } from 'react';
 import './css/bootstrap.min.css';
+import Resultados from './Resultados'
+import './css/App.css';
 
 
 const App=()=>{
@@ -8,11 +10,16 @@ const App=()=>{
 const [eleccionPlayer,setEleccionPlayer] = useState("signo");
 const [eleccionMaquina,setEleccionMaquina] = useState ("");
 const opciones = ["piedra","papel","tijera","lagarto","spock"]
+const [resultado,setResultado] = useState(false)
+const [puedeVerResultado,setPuedeVerResultado] = useState (true)
+
+
 
 const seleccionPlayer=(tipoEleccion) => (event) =>{
 
   event.preventDefault();
   setEleccionPlayer(tipoEleccion)
+  setPuedeVerResultado(false)
 
 }
 
@@ -23,12 +30,21 @@ const seleccionMaquina = () => {
 
 }
 
+const handleResultado = (event) => {
+  event.preventDefault();
+  setResultado(true)
+  seleccionMaquina()
+}
+
+
+
 return(
-  <div className="container-fluid">  
-  <br></br>
+  <div className="container-fluid" id="principal">  
+  
 
   <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6" id="col-player">
+   
     <div class="card">
      
     <div class="card-header">
@@ -52,12 +68,13 @@ return(
     <button class="dropdown-item"  onClick={seleccionPlayer("lagarto")}>Lagarto</button>
     <button class="dropdown-item"  onClick={seleccionPlayer("spock")}>Spock</button>
    
-    </div>
+   
 </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  </div>
+  <div class="col-sm-6" id="col-player">
     <div class="card">
     <div class="card-header">
     Computer
@@ -67,16 +84,23 @@ return(
       <br></br>
       <br></br>
       
-      <div class="alert alert-dark" role="alert">
+      
+      
+      <div class="alert alert-dark" role="alert" >
          Eleccion random
+    
     </div>
       </div>
     </div>
   </div>
 </div>
 
+  <br></br>
+<div ALIGN="center" className="boton">
+<button type="button" class="btn btn-outline-secondary" id="jugar" disabled={puedeVerResultado} onClick= {handleResultado}>Jugar</button>
 
-
+</div>
+{resultado && <Resultados player1={eleccionPlayer} player2={eleccionMaquina} />}
  </div>
  
 
