@@ -7,7 +7,7 @@ import lagarto from './images/lagarto.png'
 import spock from './images/spock.png'
 
 
-const Resultados = ({player1,player2}) => {
+const Resultados = ({player1,player2,nuevaPartida,sumarScore}) => {
 
 
 const mostrarGanador = (player) => {
@@ -50,6 +50,7 @@ const playerGanador = () => {
     let ganador;
     if (player1===player2) {
 
+       sumarScore('')
         return mostrarGanador("Empate")
     } else if (player1GanaPorPiedra()){
 
@@ -73,10 +74,11 @@ const playerGanador = () => {
 
         ganador = "Player 2"
     }
+    sumarScore(ganador)
     return mostrarGanador ( `Ganador : ${ganador}`)
 }
 
-const ganador = playerGanador()
+const playerganador = playerGanador()
 
 
 const imagen1= <img src={
@@ -116,10 +118,10 @@ return (
       </div>
       </div>
       <div className="row div-ganador">
-          {ganador}
+          {playerganador}
       </div>
       <div className="row div-button">
-        <button type="button" className="btn btn-dark col-sm-12" >Jugar otra vez</button>
+        <button type="button" className="btn btn-dark col-sm-12" onClick={nuevaPartida} >Jugar otra vez</button>
       </div>
     </div>    
 </div>

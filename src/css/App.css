@@ -39,10 +39,13 @@ img {
  .card-header{
 
    font-style: italic;
-   font-size: larger;
+   font-size: medium;
    color: cornsilk;
     
    border-bottom: 1px outset;
+   height: 50px;
+   
+   
  }
 
  .btn-secondary{
@@ -61,4 +64,52 @@ img {
     font-size: medium;
     font-weight: 400;
     font-style: italic;
+    margin-top: 20px;
+    height: 35px;
  }
+
+#random {
+
+    margin-top: 15px;
+
+}
+
+.dropright{
+
+    margin-top: 70px;}
+
+
+
+    #cruzado{
+
+        max-width: 5%;
+      margin-left: 1px;
+      margin-right: 10px;
+   
+    }
+
+
+    #score {
+
+      max-width: 1.6em;
+      position: relative;
+     bottom: 50px;
+     margin-right: 20px;
+
+    }
+
+    #textScore {
+
+      position: relative;
+      bottom: 22px;
+      margin-left: 380px;
+
+    }
+
+    #numero {
+
+     
+      position: relative;
+      bottom: 73px;
+      margin-left: 468px;
+    }
