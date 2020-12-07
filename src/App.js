@@ -17,15 +17,9 @@ const [resultado,setResultado] = useState(false)
 const [puedeVerResultado,setPuedeVerResultado] = useState (true)
 const [scorePlayer1,setScorePlayer1] = useState(0)
 const [scorePlayer2,setScorePlayer2] = useState(0)
-const [maquinaHaElegido,setMaquinaHaElegido] = useState(false)
 
-/*useEffect(() => {
 
-  setMaquinaHaElegido(maquinaHaElegido)
-  sumarScore();
-},[maquinaHaElegido])  
 
-*/
 
 const seleccionPlayer=(tipoEleccion) => (event) =>{
 
@@ -47,6 +41,7 @@ const handleResultado = (event) => {
   event.preventDefault();
   setResultado(true)
   seleccionMaquina()
+  setPuedeVerResultado(true)
 }
 
 const nuevaPartida = (event) => {
@@ -67,27 +62,17 @@ const sumarScore = (player) => {
  
 
   if(player === "Player 1"){
-
-    setScorePlayer1(obtenerPuntaje1+1)
+	console.log("ejecute")
+    setScorePlayer1(scorePlayer1+1)
      
   }
   else if (player === "Player 2") {
-
-       setScorePlayer2(obtenerPuntaje2+1)
+		console.log("ejecute2")
+       setScorePlayer2(scorePlayer2+1)
   }
 
 }
 
-const obtenerPuntaje1 = () => {
-    
-    return scorePlayer1
-}
-
-const obtenerPuntaje2 = () => {
-    
-
-    return scorePlayer2
-}
 
 
 return(
@@ -100,7 +85,7 @@ return(
     <div class="card">
      
     <div class="card-header">
-   <img src={cruzado} id="cruzado" ALIGN="left"></img> Player <div id="textScore" >Score</div>
+   <img src={cruzado} id="cruzado" ALIGN="left"></img> Player 1 <div id="textScore" >Score</div>
 <img src={score} id="score"  ></img> <div id="numero">{scorePlayer1}</div></div> 
       <div class="card-body">
       <img src={`../../${eleccionPlayer}.png`}></img>
@@ -128,7 +113,7 @@ return(
   <div class="col-sm-6" id="col-player">
     <div class="card">
     <div class="card-header">
-    <img src={cruzado} id="cruzado" ALIGN="left"></img> Computer <div id="textScore" >Score</div>
+    <img src={cruzado} id="cruzado" ALIGN="left"></img> Player 2 (Computer) <div id="textScore" >Score</div>
 <img src={score} id="score"  ></img> <div id="numero">{scorePlayer2}</div>
   </div>
       <div class="card-body">

@@ -71,6 +71,7 @@ img {
 #random {
 
     margin-top: 15px;
+    font-style: italic;
 
 }
 
@@ -112,4 +113,13 @@ img {
       position: relative;
       bottom: 73px;
       margin-left: 468px;
+    }
+
+    #trofeo {
+
+      max-width: 5%;
+     position: relative;
+     top: 40px;
+     right: 185px;
+
     }

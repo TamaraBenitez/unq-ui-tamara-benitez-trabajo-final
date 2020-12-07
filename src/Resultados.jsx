@@ -1,19 +1,31 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
 import './css/Resultados.css'
 import piedra from './images/piedra.png'
 import papel from './images/papel.png'
 import tijera from './images/tijera.png'
 import lagarto from './images/lagarto.png'
 import spock from './images/spock.png'
+import trofeo from './images/trofeo.png'
 
 
 const Resultados = ({player1,player2,nuevaPartida,sumarScore}) => {
 
+const [ganador,setGanador]=useState("")
+
+useEffect(() => {
+setGanador(playerGanador())
+  sumarScore(ganador)
+},[ganador])  
+
 
 const mostrarGanador = (player) => {
 
-    return(<h1 className="col-sm-12">{player}</h1> )
-
+    if(player=== "Empate"){
+        return (<h1 className="col-sm-12">Empate</h1>)
+    }
+    else{
+    return(<h1 className="col-sm-12">{`Ganador : ${player}`}</h1> )
+    }
 }
 
 const player1GanaPorPiedra = () => {
@@ -51,7 +63,7 @@ const playerGanador = () => {
     if (player1===player2) {
 
        sumarScore('')
-        return mostrarGanador("Empate")
+        return ("Empate")
     } else if (player1GanaPorPiedra()){
 
             ganador = "Player 1"
@@ -74,11 +86,11 @@ const playerGanador = () => {
 
         ganador = "Player 2"
     }
-    sumarScore(ganador)
-    return mostrarGanador ( `Ganador : ${ganador}`)
+	
+    return ganador
 }
 
-const playerganador = playerGanador()
+
 
 
 const imagen1= <img src={
@@ -118,7 +130,7 @@ return (
       </div>
       </div>
       <div className="row div-ganador">
-          {playerganador}
+     <img src= {trofeo} id="trofeo"></img>    {mostrarGanador(playerGanador())}
       </div>
       <div className="row div-button">
         <button type="button" className="btn btn-dark col-sm-12" onClick={nuevaPartida} >Jugar otra vez</button>
