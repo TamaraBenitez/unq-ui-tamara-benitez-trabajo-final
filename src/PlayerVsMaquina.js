@@ -5,6 +5,7 @@ import './css/App.css';
 import cruzado from './images/cruzado.png'
 import score from './images/score.png'
 import signo from './images/signo.png'
+import { useHistory } from 'react-router-dom';
 
 
 const PlayerVsMaquina = () =>{
@@ -18,7 +19,7 @@ const [scorePlayer1,setScorePlayer1] = useState(0)
 const [scorePlayer2,setScorePlayer2] = useState(0)
 
 
-
+const history= useHistory();
 
 const seleccionPlayer=(tipoEleccion) => (event) =>{
 
@@ -72,11 +73,17 @@ const sumarScore = (player) => {
 
 }
 
+const volver =(event) => {
+
+  event.preventDefault();
+  history.push("/")
+
+}
 
 
 return(
   <div className="container-fluid" id="principal">  
-  
+  <button type="button" class="btn btn-primary" id="volver" onClick={volver}>Volver al inicio</button>
 
   <div class="row">
   <div class="col-sm-6" id="col-player">
