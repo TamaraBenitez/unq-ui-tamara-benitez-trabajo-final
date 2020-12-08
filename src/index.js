@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Inicio from './Inicio';
+import PlayerVsMaquina from './PlayerVsMaquina';
 
 
 
@@ -11,7 +12,7 @@ import Inicio from './Inicio';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Inicio/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

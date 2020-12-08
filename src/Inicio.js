@@ -1,10 +1,26 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './css/Inicio.css';
 import jugador from './images/jugador.png'
 import twoplayers from './images/twoplayers.png'
 
 const Inicio = () => {
 
+  const history= useHistory();
+
+  const moodPlayer1= (event) => {
+
+      event.preventDefault();
+      history.push("/oneplayer")
+
+  }
+
+  const moodPlayer2= (event) => {
+
+    event.preventDefault();
+    history.push("/twoplayers")
+
+}
 
     return (
 
@@ -37,10 +53,10 @@ const Inicio = () => {
         <div class="card-body">
 
         <img src={jugador} id="oneplayer" ></img>
-        <button type="button" class="btn btn-dark" id="unplayer">Un jugador</button>
+        <button type="button" class="btn btn-dark" id="unplayer" onClick={moodPlayer1}>Un jugador</button>
 
         <img src= {twoplayers} id="players"></img>
-        <button type="button" class="btn btn-dark" id="dosplayers">Dos jugadores</button>
+        <button type="button" class="btn btn-dark" id="dosplayers" onClick={moodPlayer2}>Dos jugadores</button>
       </div>
         </div>
         </div>
