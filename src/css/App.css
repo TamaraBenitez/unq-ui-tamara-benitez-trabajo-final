@@ -7,7 +7,7 @@
    
 }
 
-.card{
+#cards{
     background-image: url(../images/fondoapp.jpg);
     background-color: rgba(245, 245, 245, 1);
   opacity: .6;

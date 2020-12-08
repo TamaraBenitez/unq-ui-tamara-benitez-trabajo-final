@@ -82,9 +82,9 @@ return(
   <div class="row">
   <div class="col-sm-6" id="col-player">
    
-    <div class="card">
+    <div class="card" id="cards">
      
-    <div class="card-header">
+    <div class="card-header" >
    <img src={cruzado} id="cruzado" ALIGN="left"></img> Player 1 <div id="textScore" >Score</div>
 <img src={score} id="score"  ></img> <div id="numero">{scorePlayer1}</div></div> 
       <div class="card-body">
@@ -111,7 +111,7 @@ return(
   </div>
   </div>
   <div class="col-sm-6" id="col-player">
-    <div class="card">
+    <div class="card" id="cards">
     <div class="card-header">
     <img src={cruzado} id="cruzado" ALIGN="left"></img> Player 2 (Computer) <div id="textScore" >Score</div>
 <img src={score} id="score"  ></img> <div id="numero">{scorePlayer2}</div>
